@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ace.png" />
+    <None Remove="andr0.png" />
+    <None Remove="booter.png" />
+    <None Remove="modzville.png" />
+    <None Remove="nemesis.png" />
+    <None Remove="Recovery.bin" />
+    <None Remove="Resources\ace.png" />
+    <None Remove="Resources\andr0.png" />
+    <None Remove="Resources\booter.png" />
+    <None Remove="Resources\modzville.png" />
+    <None Remove="Resources\nemesis.png" />
+    <None Remove="xbdm.dll" />
+    <None Remove="XeniumOS.bin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ace.png" />
+    <EmbeddedResource Include="Resources\andr0.png" />
+    <EmbeddedResource Include="Resources\booter.png" />
+    <EmbeddedResource Include="Resources\modzville.png" />
+    <EmbeddedResource Include="Resources\nemesis.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BundlerMinifier.Core" Version="3.2.449" />
+    <PackageReference Include="FluentFTP" Version="48.0.3" />
+    <PackageReference Include="K4os.Compression.LZ4" Version="1.3.6" />
+    <PackageReference Include="Mono.Options" Version="6.12.0.148" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.1" />
+  </ItemGroup>
+
+</Project>

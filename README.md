@@ -1,1 +1,1 @@
-# PrometheOSInstallerTool
+# PrometheOS Installer Tool
