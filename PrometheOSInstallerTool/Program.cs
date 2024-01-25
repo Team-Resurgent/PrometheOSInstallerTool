@@ -2,7 +2,6 @@
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System.IO;
 
 namespace PrometheOSPacker
 {
@@ -120,11 +119,26 @@ namespace PrometheOSPacker
                 
                 if (string.IsNullOrEmpty(installer) == false)
                 {
-                    string[] installers = Enum.GetNames(typeof(Installer));
-                    if (installers.Any(i => i.Equals(installer, StringComparison.OrdinalIgnoreCase)) == false)
+                    var installers = Enum.GetValues(typeof(Installer)).Cast<Installer>().ToArray(); 
+
+                    Installer selectedInstaller = Installer.Ace;
+
+                    bool found = false;
+                    foreach (var i in installers)
+                    {
+                        if (string.Equals(i.ToString(), installer, StringComparison.CurrentCultureIgnoreCase))
+                        {
+                            selectedInstaller = i;
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (found == false)
                     {
                         throw new OptionException("Invalid Installer specified.", "installer");
                     }
+
                     var imageFileData = ResourceLoader.GetEmbeddedResourceBytes($"PrometheOSInstallerTool.Resources.{installer}.png");
                     using var image = Image.Load<Argb32>(imageFileData);
                     Process(firmware, image);
