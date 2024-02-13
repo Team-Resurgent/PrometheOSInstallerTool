@@ -53,7 +53,7 @@ namespace PrometheOSPacker
         {
             var firmware = File.ReadAllBytes(firmwarePath);
             var installerLogoData = GetInstallerLogoData(image);
-            Array.Copy(installerLogoData, 0, firmware, 0x1F8000, installerLogoData.Length);
+            Array.Copy(installerLogoData, 0, firmware, 0x1F0000, installerLogoData.Length);
             File.WriteAllBytes(firmwarePath, firmware);
         }
 
